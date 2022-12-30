@@ -11,11 +11,14 @@ body {
     align-items: center;
     gap: 1vh;
 
+
 }
 
 .input-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 1vw;
+    flex-wrap: wrap;
 }
 
 .input-container,
@@ -23,9 +26,11 @@ body {
     background-color: #eeeeee;
     padding: 2% 1%;
     border-radius: 10px;
-    width: 37vw;
-
+    max-width: 37vw;
+    min-width: 37vw;
 }
+
+
 
 .tasks-container {
     display: flex;
