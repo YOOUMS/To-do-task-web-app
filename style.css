@@ -1,33 +1,46 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+
 body {
     font-family: 'Roboto Condensed', sans-serif;
 }
 
 
 .main-container {
+    width: 600px;
+    margin: auto;
     display: flex;
     margin-top: 3%;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    gap: 1vh;
+    row-gap: 20px;
+}
 
-
+@media (max-width: 767px) {
+    .main-container {
+        width: 300px;
+    }
 }
 
 .input-container {
     display: flex;
     justify-content: center;
-    gap: 1vw;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    width: 100%;
+
 }
 
 .input-container,
 .tasks-container {
     background-color: #eeeeee;
-    padding: 2% 1%;
     border-radius: 10px;
-    max-width: 37vw;
-    min-width: 37vw;
 }
 
 
@@ -35,34 +48,41 @@ body {
 .tasks-container {
     display: flex;
     flex-direction: column;
+    padding: 20px 15px;
     gap: 1vh;
+    /* min-width: 37vw; */
+    width: 100%;
 }
 
 .task-container {
     display: flex;
     background-color: white;
+    align-items: center;
     justify-content: space-between;
     border-radius: 10px;
     border: 0.05em solid #dddddd;
-    padding: 2% 1%;
+    padding: 10px 15px;
+
 
 }
 
+.task-container>span {
+    display: block;
+    flex: 1;
+    padding-right: 0px 20px;
+}
+
 input {
-    width: 30vw;
-    height: 5vh;
+    height: 35px;
     border-radius: 10px;
     border: 0.05em solid #dddddd;
     forced-color-adjust: none;
+    padding: 0px 10px;
+    flex: 1;
 }
 
 input:focus {
     outline: none;
-}
-
-.add-task-button {
-    height: 5vh;
-
 }
 
 button {
@@ -70,5 +90,6 @@ button {
     background-color: #f44336;
     color: white;
     border-radius: 5px;
+    padding: 10px 5px;
 
 }
