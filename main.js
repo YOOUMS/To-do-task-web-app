@@ -3,7 +3,7 @@ let addTaskButton = document.getElementById('addTask');
 let taskNameInput = document.getElementById('taskName');
 let tasksContainer = document.getElementById('tasksContainer');
 
-addTaskButton.onclick = function () {
+addTaskButton.addEventListener('click', function () {
 
     if (taskNameInput.value == '') {
         alert("Enter Task Name");
@@ -12,9 +12,7 @@ addTaskButton.onclick = function () {
         taskNameInput.value = '';
         fillTasks();
     }
-};
-
-
+});
 
 
 
@@ -31,28 +29,24 @@ function fillTasks() {
     
     `;
     });
-    addOnclickDeleteButton();
 
 }
 
-function addOnclickDeleteButton() {
-    let deleteTaskButtons = document.getElementsByClassName('delete-task');
+document.addEventListener('click', function (e) {
+    console.log(e.target);
 
-    Array.from(deleteTaskButtons).forEach(function (element) {
+    if (e.target.className == "button delete-task") {
+        e.target.parentElement.remove();
+        let name = e.target.parentElement.querySelector('.task-name').innerHTML;
+        delete tasks[tasks.indexOf(name)];
+    }
+});
 
-        element.onclick = function (e) {
-            e.target.parentElement.remove();
-            let name = e.target.parentElement.querySelector('.task-name').innerHTML;
-            delete tasks[tasks.indexOf(name)];
-
-        }
-    });
-}
 
 
 document.addEventListener('keydown', function (event) {
     if (event.key == 'Enter') {
-        addTaskButton.onclick();
+        addTaskButton.click();
     }
 
 });
